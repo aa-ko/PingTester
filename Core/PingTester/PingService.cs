@@ -16,6 +16,11 @@ namespace PingTester
             _pingHistory = new Dictionary<String, List<PingReply>>();
         }
 
+        public void IssueNewPingIfActive(UrlControl url)
+        {
+            if(url.IsActive) IssueNewPing(url.Url);
+        }
+
         public async void IssueNewPing(String url)
         {
             if (!_pingHistory.ContainsKey(url)) _pingHistory.Add(url, new List<PingReply>());
@@ -29,14 +34,22 @@ namespace PingTester
             }
         }
 
-        public int GetAveragePing(String url)
+        public long GetAveragePing(UrlControl url)
         {
-            List<PingReply> pings;
-            if (_pingHistory.TryGetValue(url, out pings)) return -1;
+            return GetAveragePing(url.Url);
+        }
+
+        public long GetAveragePing(String url)
+        {
+            if (!_pingHistory.TryGetValue(url, out List<PingReply> pings)) return -1;
+
+            if (pings.Count <= 0) return -1;
+            if (pings.Count == 1) return (Int32)pings.First().RoundtripTime;
 
             return pings.Select(p => p.RoundtripTime)
-                        .Select(r => (Int32)r)
-                        .Aggregate((a, b) => a + (b * (1 / HistorySize)));
+                        .Select(r => r)
+                        .Aggregate((a, b) => a + b)
+                   / pings.Count;
         }
     }
 }
