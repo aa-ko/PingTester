@@ -1,0 +1,7 @@
+﻿From: https://www.reddit.com/r/leagueoflegends/comments/4efy17/how_to_check_your_ping_without_getting_into_the/d20167p/?st=j9bcabnp&sh=6f3504b8
+
+NA - 104.160.131.3
+EUW - 104.160.141.3
+EUNE - 104.160.142.3
+OCE - 104.160.156.1
+LAN - 104.160.136.3

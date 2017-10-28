@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,6 +10,8 @@ namespace PingTester
         private readonly Timer _timer;
         private readonly PingService _pingService;
 
+        private List<UrlControl> _availableControls;
+
         public UrlControl StaticUrl01 { get; set; }
         public UrlControl StaticUrl02 { get; set; }
         public UrlControl StaticUrl03 { get; set; }
@@ -17,18 +20,19 @@ namespace PingTester
 
         public Form1()
         {
+            _pingService = new PingService();
+            _availableControls = new List<UrlControl>();
+
+            InitControls();
+            
             _timer = new Timer();
             _timer.Interval = 250;
             _timer.Tick += OnTimerTick;
-            _pingService = new PingService();
             InitializeComponent();
 
             StaticUrl01 = new UrlControl("8.8.8.8", "Google DNS", 500, 20);
-            StaticUrl02 = new UrlControl("8.8.8.8", "Google DNS", 500, 20);
+            StaticUrl02 = new UrlControl("104.160.141.3", "League Of Legends EUW", 500, 20);
             StaticUrl03 = new UrlControl("8.8.8.8", "Google DNS", 500, 20);
-
-            checkBox4.Enabled = false;
-            textBox1.Enabled = false;
 
             checkBox1.Text = StaticUrl01.DisplayName;
             checkBox2.Text = StaticUrl02.DisplayName;
@@ -39,6 +43,11 @@ namespace PingTester
             label3.Text = String.Empty;
 
             _timer.Start();
+        }
+
+        private void InitControls()
+        {
+
         }
 
         private void OnTimerTick(object sender, EventArgs e)
@@ -79,7 +88,7 @@ namespace PingTester
             label.Text = ping.ToString();
 
             if (ping < 30) label.BackColor = Color.LightGreen;
-            else if (ping < 80) label.BackColor = Color.LightYellow;
+            else if (ping < 80) label.BackColor = Color.Yellow;
             else if (ping < 150) label.BackColor = Color.IndianRed;
         }
     }

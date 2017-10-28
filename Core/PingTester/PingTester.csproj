@@ -81,5 +81,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="GameServerIPs\Hearthstone.txt" />
+    <Content Include="GameServerIPs\LeagueOfLegends.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

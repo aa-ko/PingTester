@@ -34,9 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -102,40 +99,11 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "label3";
             // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(12, 225);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 8;
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(33, 222);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 20);
-            this.textBox1.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "label4";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 299);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox4);
+            this.ClientSize = new System.Drawing.Size(402, 112);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -156,9 +124,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
     }
 }
 
