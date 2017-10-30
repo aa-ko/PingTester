@@ -8,6 +8,7 @@ namespace PingTester
     public class PingService
     {
         private const Int32 HistorySize = 20;
+        private const Int32 Timeout = 2000;
 
         private Dictionary<String, List<PingReply>> _pingHistory;
 
@@ -18,7 +19,8 @@ namespace PingTester
 
         public void IssueNewPingIfActive(UrlControl url)
         {
-            if(url.IsActive) IssueNewPing(url.Url);
+            if (url == null) return;
+            if (url.IsActive) IssueNewPing(url.Url);
         }
 
         public async void IssueNewPing(String url)
@@ -27,7 +29,7 @@ namespace PingTester
 
             using (var ping = new Ping())
             {
-                var reply = await ping.SendPingAsync(url);
+                var reply = await ping.SendPingAsync(url, Timeout);
                 List<PingReply> pings;
                 _pingHistory.TryGetValue(url, out pings);
                 pings.AddToListAsQueue(reply, HistorySize);
@@ -42,14 +44,17 @@ namespace PingTester
         public long GetAveragePing(String url)
         {
             if (!_pingHistory.TryGetValue(url, out List<PingReply> pings)) return -1;
-
             if (pings.Count <= 0) return -1;
-            if (pings.Count == 1) return (Int32)pings.First().RoundtripTime;
 
-            return pings.Select(p => p.RoundtripTime)
-                        .Select(r => r)
-                        .Aggregate((a, b) => a + b)
-                   / pings.Count;
+            var successPings = pings.Where(p => p.Status == IPStatus.Success);
+            var timedOutPings = pings.Where(p => p.Status == IPStatus.TimedOut);
+            var ignoredPings = pings.Where(p => !(p.Status == IPStatus.Success || p.Status == IPStatus.TimedOut));
+
+            if (successPings.Count() == 0 && timedOutPings.Count() > 0) return -1;
+
+            return   (successPings.Select(p => p.RoundtripTime).Sum()
+                   + Timeout * timedOutPings.Count())
+                   / (successPings.Count() + timedOutPings.Count());
         }
     }
 }

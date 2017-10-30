@@ -23,5 +23,10 @@ namespace PingTester
 
             IsActive = false;
         }
+
+        public override string ToString()
+        {
+            return String.Format($"{DisplayName} ({Url})");
+        }
     }
 }

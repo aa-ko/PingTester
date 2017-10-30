@@ -82,8 +82,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GameServerIPs\Counter Strike Global Offensive.txt" />
     <Content Include="GameServerIPs\Hearthstone.txt" />
+    <Content Include="GameServerIPs\Heroes of the Storm.txt" />
     <Content Include="GameServerIPs\LeagueOfLegends.txt" />
+    <Content Include="GameServerIPs\Overwatch.txt" />
+    <Content Include="GameServerIPs\Starcraft II.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
