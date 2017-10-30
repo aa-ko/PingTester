@@ -34,8 +34,8 @@ namespace PingTester
             label1.Text = String.Empty;
             label2.Text = String.Empty;
             label3.Text = String.Empty;
-
-            Text = "PingTester 1.0.0";
+            
+            Text = "PingTester 0.1.0.2";
 
             _timer.Start();
         }
