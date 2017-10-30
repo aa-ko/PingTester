@@ -8,6 +8,8 @@ namespace PingTester
 {
     public partial class Form1 : Form
     {
+        private const Int32 PingInterval = 500;
+
         private readonly Timer _timer;
         private readonly PingService _pingService;
 
@@ -23,7 +25,7 @@ namespace PingTester
             _availableControls = new List<UrlControl>();
             
             _timer = new Timer();
-            _timer.Interval = 500;
+            _timer.Interval = PingInterval;
             _timer.Tick += OnTimerTick;
 
             InitializeComponent();
