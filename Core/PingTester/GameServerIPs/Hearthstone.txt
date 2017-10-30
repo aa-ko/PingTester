@@ -1,4 +1,4 @@
-﻿From: https://eu.battle.net/support/de/article/7871
+﻿Source: https://eu.battle.net/support/de/article/7871
 
 Nordamerika			24.105.30.129
 Europa				185.60.112.157

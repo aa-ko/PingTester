@@ -1,0 +1,10 @@
+﻿Source: https://eu.battle.net/support/de/article/7871
+
+Nordamerika				24.105.30.129 (US West)
+						24.105.62.129 (US Central)
+Australien (Amerika)	103.4.114.233
+Europa					185.60.112.157
+						185.60.112.158
+						185.60.114.159
+Korea und Taiwan		222.231.22.1
+Südostasien				202.9.67.254

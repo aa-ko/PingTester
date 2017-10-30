@@ -1,0 +1,5 @@
+﻿Source: https://www.reddit.com/r/GlobalOffensive/comments/1u2yxt/test_your_ping_to_csgos_server_locations_before/?st=j9ddbkgv&sh=723fc103
+
+(EU West) Luxembourg	146.66.152.1
+(EU East) Vienna		146.66.155.1
+(SW) Stockholm			146.66.156.1
